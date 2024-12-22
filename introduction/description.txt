@@ -1,3 +1,5 @@
+Food Line
+
 There are n lines of people waiting for food, and the number of people wait-
 ing in each line is known. Then, each of m new people will arrive, and they
 will join the shortest line (the line with the fewest number of people). Our
