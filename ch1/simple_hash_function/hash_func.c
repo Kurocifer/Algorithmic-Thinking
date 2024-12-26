@@ -5,6 +5,7 @@
 // one-at-a-time hash function
 unsigned long oaat(char *key, unsigned long len, unsigned long bits) {
 	unsigned long hash;
+	
 
 	for(int i = 0, hash = 0; i < len; i++) {
 		hash += key[i];
@@ -16,9 +17,13 @@ unsigned long oaat(char *key, unsigned long len, unsigned long bits) {
 	hash += (hash >> 1);
 	hash ^= (hash << 15);
 
-	return hash & hashmask(bits);
+	// Why assign it to a variable before returning instead of just returning directly...
+	// for some readon when I return directly it does not work as expected and I can't even phantom why :)
+	unsigned long final_hash = hash & hashmask(bits);
+	return final_hash;
 }
 
+/*
 int main(void) {
 	long snowflake[] = {1, 2, 3, 4, 5, 6};
 
@@ -27,3 +32,4 @@ int main(void) {
 	printf("%lu\n", code);
 	return 0;
 }
+*/
